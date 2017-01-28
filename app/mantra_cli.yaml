@@ -1,0 +1,62 @@
+tabSize: 2
+storybook: true
+
+templates:
+  - name: 'storybook'
+    text: |
+      import React from 'react';
+      import { storiesOf, action } from '@kadira/storybook';
+      import { setComposerStub } from 'react-komposer';
+      import <%= componentName %> from '../<%= componentFileName %>';
+
+
+      storiesOf('<%= moduleName %>.<%= componentName %>', module)
+        .addWithInfo('default view', 'This is the default view', () => {
+          return (
+            <<%= componentName %> />
+          );
+        })
+  - name: 'container'
+    text: |
+        import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
+        import <%= componentName %> from '../components/<%= componentFileName %>.jsx';
+
+        export const composer = ({ context }, onData) => {
+          const { Meteor, Collections } = context();
+
+          onData(null, {});
+        };
+
+        export const depsMapper = (context, actions) => ({
+          context: () => context,
+        });
+
+        const <%= componentName %>Container = composeAll(
+          composeWithTracker(composer),
+          useDeps(depsMapper)
+        )(<%= componentName %>);
+
+        export default <%= componentName %>Container;
+
+  - name: 'component'
+    text: |
+      import React from 'react';
+      
+      const <%= componentName %> => {
+        return (
+          <div >
+            <%= componentName %>
+          </div>
+        );
+      }
+
+      <%= componentName %>.propTypes = {
+        styles: React.PropTypes.object,
+      };
+
+      <%= componentName %>.defaultProps = {
+      };
+
+      <%= componentName %>.displayName = '<%= componentName %>';
+
+      export default <%= componentName %>;
