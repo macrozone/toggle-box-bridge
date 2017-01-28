@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^1.x.x",
+    "ava": "^0.17.0",
     "babel-core": "6.x.x",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.4",
