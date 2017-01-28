@@ -12,6 +12,16 @@
     "test-storybook": "storyshots",
     "update-storybook-tests": "npm run test-storybook -- -u"
   },
+  "ava": {
+    "babel": "inherit",
+    "files": [
+      "client/**/tests/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/username/reponame.git"
