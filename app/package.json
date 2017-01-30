@@ -12,16 +12,6 @@
     "test-storybook": "storyshots",
     "update-storybook-tests": "npm run test-storybook -- -u"
   },
-  "ava": {
-    "babel": "inherit",
-    "files": [
-      "client/**/tests/**/*.js"
-    ],
-    "require": [
-      "babel-register",
-      "babel-polyfill"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/username/reponame.git"
@@ -47,13 +37,9 @@
     "simpl-schema": "^0.1.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "~2.35.3",
     "@kadira/storyshots": "^2.1.0",
-=======
-    "@kadira/storybook": "^1.x.x",
->>>>>>> added first basic e2e test
     "babel-core": "6.x.x",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
