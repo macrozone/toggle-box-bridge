@@ -1,0 +1,9 @@
+image: blurri/meteor-node
+variables:
+    METEOR_ALLOW_SUPERUSER: "true"
+test:
+  script:
+   - cd app
+   - meteor npm install
+   - node_modules/.bin/ava
+   - meteor npm run ci
