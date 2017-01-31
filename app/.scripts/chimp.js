@@ -1,86 +1,68 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
-/**
- * Copied from https://github.com/xolvio/qualityfaster
- * Refactor to ES6
- */
+const path = require('path');
+const util = require('util');
+const childProcess = require('child_process');
 
-var path = require('path'),
-   fs = require('fs'),
-   extend = require('util')._extend,
-   exec = require('child_process').exec,
-   processes = [], 
-   baseDir = path.resolve(__dirname, '..'),
-   chimpBin = path.resolve(baseDir, 'node_modules/.bin/chimp');
+const processes = [];
+const baseDir = path.resolve(__dirname, '..');
+const chimpBin = path.resolve(baseDir, 'node_modules/.bin/chimp');
 
-var appOptions = {
+const appOptions = {
   settings: 'settings.json',
   port: 3000,
   env: {
-    ROOT_URL: 'http://localhost:3000'
-  }
+    ROOT_URL: 'http://localhost:3000',
+  },
 };
 
-start();
+const meteorOptions = {
+  name: 'Meteor App',
+  command: `meteor --settings ${appOptions.settings} --port ${appOptions.port}`,
+  waitForMessage: 'App running at',
+  options: {
+    cwd: baseDir,
+    env: util._extend(appOptions.env, process.env),
+  },
+};
 
-function start() {
-  appOptions.waitForMessage = 'App running at';
-  startApp(startAppCallback);
-}
+const chimpOptions = {
+  name: 'Chimp',
+  command: `${chimpBin} --mocha --ddp=http://localhost:3000 --path=tests`,
+  options: {
+    env: Object.assign({}, process.env, {
+      NODE_PATH: `${process.env.NODE_PATH +
+      path.delimiter + baseDir +
+      path.delimiter + baseDir}/node_modules`,
+    }),
+  },
+};
 
-function startAppCallback(){
-  startChimp('--ddp=' + appOptions.env.ROOT_URL);
-}
-
-function startApp(callback) {
-  var opts = {
-    name: 'Meteor App',
-    command: 'meteor --settings ' + appOptions.settings + ' --port ' + appOptions.port,
-    waitForMessage: appOptions.waitForMessage,
-    options: {
-      cwd: baseDir,
-      env: extend(appOptions.env, process.env)
-    }
-  };
-  startProcess(opts, callback);
-}
-
-function startChimp(command) {
-  startProcess({
-    name: 'Chimp',
-    command: chimpBin + ' --mocha --ddp=http://localhost:3000 --path=tests',
-    options: {
-      env: Object.assign({}, process.env, {
-        NODE_PATH: process.env.NODE_PATH +
-          path.delimiter + baseDir +
-          path.delimiter + baseDir + '/node_modules',
-      }),
-    },
-  });
-}
-
-function startProcess(opts, callback) {
-  var proc = exec(
+function startProcess(opts) {
+  return new Promise((resolve) => {
+    const proc = childProcess.exec(
      opts.command,
-     opts.options
-  );
-  if (opts.waitForMessage) {
-    proc.stdout.on('data', function waitForMessage(data) {
-      if (data.toString().match(opts.waitForMessage)) {
-        if (callback) {
-          callback();
+     opts.options);
+    if (opts.waitForMessage) {
+      proc.stdout.on('data', function waitForMessage(data) {
+        if (data.toString().match(opts.waitForMessage)) {
+          resolve();
         }
-      }
-    });
-  }
-  proc.stdout.pipe(process.stdout);
-  proc.stderr.pipe(process.stderr);
-  proc.on('close', function (code) {
-    console.log(opts.name, 'exited with code ' + code);
-    for (var i = 0; i < processes.length; i += 1) {
-      processes[i].kill();
+      });
     }
-    process.exit(code);
+    proc.stdout.pipe(process.stdout);
+    proc.stderr.pipe(process.stderr);
+    proc.on('close', function (code) {
+      console.log(opts.name, `exited with code ${code}`);
+      processes.map(item => item.kill());
+      process.exit(code);
+    });
+    processes.push(proc);
   });
-  processes.push(proc);
 }
+
+startProcess(meteorOptions)
+  .then(() => {
+    startProcess(chimpOptions);
+  });
