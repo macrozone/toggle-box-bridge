@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "description": "boilerplate",
   "scripts": {
-    "lint": "eslint ./lib ./client ./server --ext .js .jsx",
-    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
-    "storybook": "start-storybook -p 9001"
+    "lint": "eslint --cache ./lib ./client ./server --ext=jsx --ext=js",
+    "storybook": "start-storybook -p 9001",
+    "chimp-watch": "chimp --mocha --ddp=http://localhost:3000 --watch --path=tests",
+    "chimp": "chimp --mocha --ddp=http://localhost:3000 --path=tests",
+    "ci": ".scripts/chimp.js"
+  },
+  "ava": {
+    "babel": "inherit",
+    "files": [
+      "client/**/tests/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ]
   },
   "repository": {
     "type": "git",
