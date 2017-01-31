@@ -6,5 +6,5 @@ test:
    - cd app
    - meteor npm install
    - meteor npm run lint
-   - meteor npm run ava
+   - node_modules/.bin/ava
    - meteor npm run ci
