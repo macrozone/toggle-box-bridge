@@ -45,22 +45,14 @@
     "new-cap": 0,
     "import/no-unresolved": 0,
     "import/no-absolute-path": 0,
-<<<<<<< HEAD
     "import/no-extraneous-dependencies": 0,
     "meteor/audit-argument-checks": ["warn"],
-=======
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.js"]}],
->>>>>>> installed ava testrunner for unit tests
     "import/extensions": 0,
     "import/imports-first": 0,
     "no-underscore-dangle": 0,
     "prefer-arrow-callback": 0,
     "func-names": 0,
     "react/jsx-filename-extension": 0,
-<<<<<<< HEAD
     "jsx-a11y/no-static-element-interactions": 0
-=======
-    "no-unused-expressions": 0
->>>>>>> installed ava testrunner for unit tests
   }
 }
