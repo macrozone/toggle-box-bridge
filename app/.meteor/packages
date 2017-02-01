@@ -18,17 +18,11 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 
 kadira:flow-router
-aldeed:simple-schema
 aldeed:collection2
 accounts-password
-dburles:collection-helpers
 mdg:validated-method
 mdg:validation-error
-edgee:slingshot
 panter:meteor-griddle
 alanning:roles
 didericis:permissions-mixin
-meteorhacks:aggregate
-panter:keypress
 percolate:migrations
-meteorhacks:subs-manager

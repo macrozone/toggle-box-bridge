@@ -4,14 +4,15 @@ import { mount } from 'react-mounter';
 import MainLayout from './components/main_layout.jsx';
 import Home from './components/home.jsx';
 
-export default function (injectDeps, { FlowRouter }) {
+export default function (injectDeps, { localeRoutes }) {
   const MainLayoutCtx = injectDeps(MainLayout);
-
-  FlowRouter.route('/', {
+  localeRoutes.route('/', {
     name: 'home',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<Home />),
+        transparent: true,
+        contentFullWidth: true,
+        content: () => <Home />,
       });
     },
   });
