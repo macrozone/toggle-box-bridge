@@ -20,9 +20,9 @@ import TranslationStore from '@panter/manul-i18n/dist/stores/collection';
 export default function () {
   const LocalState = new ReactiveDict();
 
-  moment.locale('fr', momentFr);
-  moment.locale('it', momentIt);
-  moment.locale('de', momentDe);
+  moment.defineLocale('fr', momentFr);
+  moment.defineLocale('it', momentIt);
+  moment.defineLocale('de', momentDe);
 
   const i18n = new I18n({
     supportedLocales: ['de', 'en', 'fr', 'it'],
@@ -34,22 +34,15 @@ export default function () {
     }),
   });
 
-  i18n.T = T;
-
   const manulRouter = new ManulRouter(
     { FlowRouter, Meteor, i18n },
   );
-
-  i18n.gotoTranslationEdit =
 
   i18n.onChangeLocale(locale => moment.locale(locale));
 
   return {
     Meteor,
-    FlowRouter,
     manulRouter,
-    createNavItem: manulRouter.createNavItem,
-    gotoRoute: manulRouter.go.bind(manulRouter),
     SimpleSchema,
     LocalState,
     Collections,
