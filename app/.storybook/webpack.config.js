@@ -8,10 +8,12 @@ module.exports = {
         loaders: ['style', 'css', 'sass'],
         include: path.resolve(__dirname, '../'),
       },
-
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
+    alias: {
+      handlebars: 'handlebars/dist/handlebars.min.js',
+    },
   },
 };
