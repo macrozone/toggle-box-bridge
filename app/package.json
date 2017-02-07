@@ -8,7 +8,8 @@
     "chimp-watch": "chimp --mocha --ddp=http://localhost:3000 --watch --path=tests",
     "chimp": "chimp --mocha --ddp=http://localhost:3000 --path=tests",
     "ci": ".scripts/chimp.js",
-    "test-storybook": "storyshots"
+    "test-storybook": "storyshots",
+    "update-storybook-tests": "npm run test-storybook -- -u"
   },
   "repository": {
     "type": "git",
