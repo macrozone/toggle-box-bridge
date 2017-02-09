@@ -16,6 +16,10 @@ import ManulRouter from '@panter//manul-router';
 import { I18n, T } from '@panter/manul-i18n';
 import TranslationStore from '@panter/manul-i18n/dist/stores/collection';
 
+import { Accounts } from 'meteor/accounts-base';
+import { Roles } from 'meteor/alanning:roles';
+import { MeteorGriddle } from 'meteor/panter:meteor-griddle';
+
 
 export default function () {
   const LocalState = new ReactiveDict();
@@ -49,5 +53,9 @@ export default function () {
     Tracker,
     i18n,
     localeRoutes: manulRouter.createLocaleRoutesGroup(),
+    Config: Collections.Config,
+    Roles,
+    Accounts,
+    MeteorGriddle,
   };
 }
