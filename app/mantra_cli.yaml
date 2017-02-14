@@ -1,5 +1,7 @@
 tabSize: 2
 storybook: true
+generateComponentTests: false
+generateContainerTests: false
 
 templates:
   - name: 'storybook'
@@ -11,7 +13,9 @@ templates:
 
 
       storiesOf('<%= moduleName %>.<%= componentName %>', module)
-        .addWithInfo('default view', 'This is the default view', () => {
+        .addWithDoc('default view', <%= componentName %>,
+        'This is the default view',
+        () => {
           return (
             <<%= componentName %> />
           );
@@ -19,6 +23,7 @@ templates:
   - name: 'container'
     text: |
         import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
+        import { setComposerStub } from 'react-komposer';
         import <%= componentName %> from '../components/<%= componentFileName %>.jsx';
 
         export const composer = ({ context }, onData) => {
@@ -36,22 +41,30 @@ templates:
           useDeps(depsMapper)
         )(<%= componentName %>);
 
+        setComposerStub(<%= componentName %>Container, ({ }) => ({
+
+        }));
+
         export default <%= componentName %>Container;
 
   - name: 'component'
     text: |
       import React from 'react';
-      
-      const <%= componentName %> => {
-        return (
-          <div >
-            <%= componentName %>
-          </div>
-        );
-      }
+      import { T } from '@panter/manul-i18n';
+      import styled, { css } from 'styled-components';
+
+      const <%= componentName %>Base = styled.div`
+        padding: 10px;
+      `
+      <%= componentName %>Base.displayName = '<%= componentName %>Base';
+
+      const <%= componentName %> = ({}) => (
+        <<%= componentName %>Base>
+          <%= componentName %>
+        </<%= componentName %>Base>
+      );
 
       <%= componentName %>.propTypes = {
-        styles: React.PropTypes.object,
       };
 
       <%= componentName %>.defaultProps = {
