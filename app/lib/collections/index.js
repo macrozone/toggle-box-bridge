@@ -1,5 +1,7 @@
 import Translations from './translations';
+import Users from './users';
 
-export default {
+export {
   Translations,
+  Users,
 };

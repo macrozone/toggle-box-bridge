@@ -18,7 +18,7 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 
 kadira:flow-router
-aldeed:collection2
+aldeed:collection2-core@2.0.0
 accounts-password
 mdg:validated-method
 mdg:validation-error

@@ -1,6 +1,6 @@
 import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
 import AdminLayout from '../components/admin_layout.jsx';
-import MainLayout from '/client/modules/core/containers/main_layout';
+import MainLayout from '../../core/components/main_layout';
 import restrictToRoles from '/client/modules/core/hocs/restrict_to_roles';
 import NotAllowedMessage from '../components/not_allowed_message';
 import React from 'react';

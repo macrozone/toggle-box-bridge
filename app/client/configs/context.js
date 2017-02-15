@@ -5,7 +5,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Tracker } from 'meteor/tracker';
 
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import SimpleSchema from 'simpl-schema';
 
 import moment from 'moment';
 import momentDe from 'moment/locale/de';
@@ -20,6 +20,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
 import { MeteorGriddle } from 'meteor/panter:meteor-griddle';
 
+import createAdminContext from './create_admin_context';
 
 export default function () {
   const LocalState = new ReactiveDict();
@@ -44,7 +45,7 @@ export default function () {
 
   i18n.onChangeLocale(locale => moment.locale(locale));
 
-  return {
+  const context = {
     Meteor,
     manulRouter,
     SimpleSchema,
@@ -58,4 +59,6 @@ export default function () {
     Accounts,
     MeteorGriddle,
   };
+  context.adminContext = createAdminContext(context);
+  return context;
 }
