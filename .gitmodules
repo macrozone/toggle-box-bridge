@@ -1,0 +1,6 @@
+[submodule "app/manul-utils"]
+	path = app/manul-utils
+	url = git@git.panter.ch:manul/manul-utils.git
+[submodule "app/manul-files"]
+	path = app/manul-files
+	url = git@git.panter.ch:manul/manul-files.git
