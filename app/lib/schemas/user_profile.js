@@ -1,5 +1,4 @@
 import SimpleSchema from 'simpl-schema';
-import _ from 'lodash';
 
 export const AddressSchema = new SimpleSchema({
   address: {

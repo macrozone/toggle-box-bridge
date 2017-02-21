@@ -53,6 +53,7 @@ export default function () {
     Collections,
     Tracker,
     i18n,
+    gotoRoute: manulRouter.go.bind(manulRouter),
     localeRoutes: manulRouter.createLocaleRoutesGroup(),
     Config: Collections.Config,
     Roles,

@@ -39,7 +39,8 @@
     "recompose": "^0.21.2",
     "simpl-schema": "^0.1.0",
     "styled-components": "^1.4.3",
-    "uniforms": "^1.11.2"
+    "uniforms": "^1.11.2",
+    "yamljs": "^0.2.8"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",

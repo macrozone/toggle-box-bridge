@@ -1,6 +1,6 @@
 import React from 'react';
 import { T } from '@panter/manul-i18n';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 const C = ({ href, className, style, children, label, onClick, type }) => {
