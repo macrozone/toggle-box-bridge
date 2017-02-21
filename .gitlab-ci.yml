@@ -1,15 +1,5 @@
-image: blurri/meteor-node
-variables:
-    METEOR_ALLOW_SUPERUSER: "true"
-test:
-  script:
-   - cd app
-   - meteor npm install
-   - meteor npm run lint
-   - meteor npm run ci
+image: blurri/meteor-node-heroku
 
-
-image: blurri/meteor-node
 variables:
     METEOR_ALLOW_SUPERUSER: "true"
 
@@ -25,17 +15,12 @@ test:
 build:
   stage: build
   script: ./build-staging.sh
-  artifacts:
-    paths:
-    - build
   only:
   - develop
 
 deploy_staging:
   stage: deploy
-  script:
-    - heroku git:remote -a gba-mantra-boilerplate
-    - git subtree push --prefix app heroku master
+  script: ./deploy-staging.sh
   environment:
     name: staging
     url: https://gba-mantra-boilerplate.herokuapp.com
