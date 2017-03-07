@@ -1,2 +1,2 @@
 import home from './home';
-import button from './button';
+import center from './center';

@@ -1,0 +1,68 @@
+exports[`default view`] = `
+<div
+  className="hhpmBF">
+  <div
+    className="ktCMVe">
+    <form
+      noValidate={true}
+      onSubmit={[Function]}
+      submitLabel={
+        <T>
+          registration.register.submitlabel
+        </T>
+      }>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0000">
+          Email
+        </label>
+        <input
+          disabled={false}
+          id="uniforms-0001-0000"
+          name="email"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0002">
+          Password
+        </label>
+        <input
+          disabled={false}
+          id="uniforms-0001-0002"
+          name="password"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0004">
+          Enter the password again
+        </label>
+        <input
+          disabled={false}
+          id="uniforms-0001-0004"
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value="" />
+      </div>
+      <button
+        className="cmAKXG"
+        href={undefined}
+        onClick={undefined}
+        style={undefined}
+        type="submit" />
+    </form>
+  </div>
+</div>
+`;

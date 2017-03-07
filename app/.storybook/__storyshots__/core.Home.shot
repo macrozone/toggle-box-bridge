@@ -1,6 +1,12 @@
 exports[`default view`] = `
 <div
-  className="iuZRYL">
-  Boilerplate
+  className="foqgVb">
+  <div
+    className="ktCMVe">
+    <h1
+      className="uGLzh">
+      Boilerplate
+    </h1>
+  </div>
 </div>
 `;

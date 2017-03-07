@@ -1,2 +1,18 @@
 yes: Ja
 no: Nein
+
+account:
+  login:
+    submitlabel: Login
+    success:
+      message: Willkommen.
+    error:
+      message: Login inkorrekt.
+
+registration:
+  register:
+    submitlabel: Signup
+    success:
+      message: Willkommen.
+    error:
+      message: Es trat ein fehler auf.
