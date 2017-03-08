@@ -3,6 +3,7 @@ import { T } from '@panter/manul-i18n';
 import styled from 'styled-components';
 import AutoForm from '../../form-ui/components/forms/AutoForm';
 import Center from '../../core/components/center';
+import LinkButton from '../../core/containers/link_button';
 
 const LoginBase = styled.div`
 `;
@@ -14,6 +15,13 @@ const Login = ({ loginSchema, login }) => (
       <AutoForm
         schema={loginSchema}
         onSubmit={login}
+        additionalActions={
+          <LinkButton
+            routeName="home"
+          >
+            <T>forms.back</T>
+          </LinkButton>
+      }
         submitLabel={<T>account.login.submitlabel</T>}
       />
     </Center>

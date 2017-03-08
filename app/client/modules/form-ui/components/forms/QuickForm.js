@@ -2,9 +2,10 @@ import QuickForm from 'uniforms/QuickForm';
 
 import BaseForm from './BaseForm';
 import AutoField from '../fields/AutoField';
-import ErrorsField from '../fields//ErrorsField';
-import SubmitField from '../fields//SubmitField';
+import FormActions from './FormActions';
 import React from 'react';
+import { T } from '@panter/manul-i18n';
+
 
 const Quick = parent => class extends QuickForm.Quick(parent) {
   static Quick = Quick;
@@ -14,11 +15,16 @@ const Quick = parent => class extends QuickForm.Quick(parent) {
   }
 
   getErrorsField() {
-    return ErrorsField;
+    return () => null;
   }
 
   getSubmitField() {
-    return props => <SubmitField {...props} label={this.props.submitLabel} />;
+    return props => (
+      !props.hideSubmitField && <FormActions
+        submitLabel={this.props.submitLabel}
+      >{this.props.additionalActions}
+      </FormActions>
+  );
   }
 };
 

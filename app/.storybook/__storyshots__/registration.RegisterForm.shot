@@ -4,6 +4,14 @@ exports[`default view`] = `
   <div
     className="ktCMVe">
     <form
+      additionalActions={
+        <T
+          routeName="home">
+          <T>
+            forms.back
+          </T>
+        </T>
+      }
       noValidate={true}
       onSubmit={[Function]}
       submitLabel={
@@ -18,6 +26,7 @@ exports[`default view`] = `
           Email
         </label>
         <input
+          className="duAxJZ"
           disabled={false}
           id="uniforms-0001-0000"
           name="email"
@@ -33,6 +42,7 @@ exports[`default view`] = `
           Password
         </label>
         <input
+          className="duAxJZ"
           disabled={false}
           id="uniforms-0001-0002"
           name="password"
@@ -48,6 +58,7 @@ exports[`default view`] = `
           Enter the password again
         </label>
         <input
+          className="duAxJZ"
           disabled={false}
           id="uniforms-0001-0004"
           name="confirmPassword"
@@ -56,12 +67,15 @@ exports[`default view`] = `
           type="password"
           value="" />
       </div>
-      <button
-        className="cmAKXG"
-        href={undefined}
-        onClick={undefined}
-        style={undefined}
-        type="submit" />
+      <div
+        className="iUTagu">
+        <button
+          className="cmAKXG"
+          href={undefined}
+          onClick={undefined}
+          style={undefined}
+          type="submit" />
+      </div>
     </form>
   </div>
 </div>

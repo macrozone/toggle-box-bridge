@@ -1,6 +1,10 @@
 yes: Ja
 no: Nein
 
+
+forms:
+  back: Back
+
 account:
   login:
     submitlabel: Login
