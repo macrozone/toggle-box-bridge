@@ -1,6 +1,32 @@
 exports[`default view`] = `
 <div
-  className="hhpmBF">
-  Profile
+  className="foqgVb">
+  <div
+    className="gADXiQ">
+    <div
+      className="zqYHh">
+      Profile
+    </div>
+    <h1>
+      Firstname: 
+      Heinz
+    </h1>
+    <h1>
+      Lastname: 
+      McHeinzFace
+    </h1>
+    <h1>
+      Email: 
+      heinz@wuhu.ch
+    </h1>
+    <button
+      className="cmAKXG"
+      href={undefined}
+      onClick={undefined}
+      style={undefined}
+      type={undefined}>
+      Logout
+    </button>
+  </div>
 </div>
 `;

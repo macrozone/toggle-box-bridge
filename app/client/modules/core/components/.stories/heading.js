@@ -1,17 +1,16 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { setComposerStub } from 'react-komposer';
-import Center from '../center';
+import Heading from '../heading';
 
 
-storiesOf('core.Center', module)
-  .addWithDoc('default view', Center,
+storiesOf('core.Heading', module)
+  .addWithDoc('default view', Heading,
   'This is the default view',
   () => {
     return (
-      <Center>
-        Centered Content
-      </Center>
-
+      <Heading>
+        This Is A Heading
+      </Heading>
     );
   })

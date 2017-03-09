@@ -1,13 +1,13 @@
 export default {
   registration: {
-    register({ Accounts, Alerts, manulRouter }, { email, password }, onError) {
+    register({ Accounts, Alerts, manulRouter }, { email, password, ...profile }, onError) {
       Accounts.createUser(
-        { email, password },
+        { email, password, profile },
         Alerts.handleCallback('registration.register', (error) => {
           if (error) {
             onError;
           } else {
-            manulRouter.go('myProfile');
+            manulRouter.go('home');
           }
         })
       );

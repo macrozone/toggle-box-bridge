@@ -2,7 +2,7 @@ exports[`default view`] = `
 <div
   className="hhpmBF">
   <div
-    className="ktCMVe">
+    className="gADXiQ">
     <form
       additionalActions={
         <T
@@ -23,13 +23,13 @@ exports[`default view`] = `
         required={true}>
         <label
           htmlFor="uniforms-0001-0000">
-          Email
+          Firstname
         </label>
         <input
           className="duAxJZ"
           disabled={false}
           id="uniforms-0001-0000"
-          name="email"
+          name="firstname"
           onChange={[Function]}
           placeholder=""
           type="text"
@@ -39,12 +39,44 @@ exports[`default view`] = `
         required={true}>
         <label
           htmlFor="uniforms-0001-0002">
-          Password
+          Lastname
         </label>
         <input
           className="duAxJZ"
           disabled={false}
           id="uniforms-0001-0002"
+          name="lastname"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0004">
+          Email
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0004"
+          name="email"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0006">
+          Password
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0006"
           name="password"
           onChange={[Function]}
           placeholder=""
@@ -54,13 +86,13 @@ exports[`default view`] = `
       <div
         required={true}>
         <label
-          htmlFor="uniforms-0001-0004">
+          htmlFor="uniforms-0001-0008">
           Enter the password again
         </label>
         <input
           className="duAxJZ"
           disabled={false}
-          id="uniforms-0001-0004"
+          id="uniforms-0001-0008"
           name="confirmPassword"
           onChange={[Function]}
           placeholder=""

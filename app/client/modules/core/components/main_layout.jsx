@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import colors from '/lib/styles/colors';
 import { AlertsStack } from '@panter/manul-alerts';
 
+
 const LayoutBase = styled.div`
   position: absolute;
   left: 0;
@@ -14,9 +15,9 @@ const LayoutBase = styled.div`
 `;
 
 
-const Layout = ({ content = () => null }) => (
+const Layout = ({ content = () => null, contentNotLoggedIn = () => null, user }) => (
   <LayoutBase>
-    {content()}
+    {user ? content() : contentNotLoggedIn()}
     <AlertsStack
       styles={{ titleStyle: { color: colors.darkblue }, actionStyle: { color: colors.darkblue } }}
       stylesError={{ titleStyle: { color: colors.error } }}

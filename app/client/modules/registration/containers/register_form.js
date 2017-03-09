@@ -1,13 +1,14 @@
 import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
 import { setComposerStub } from 'react-komposer';
 import RegisterForm from '../components/register_form.jsx';
+import UserProfileSchema from '/lib/schemas/user_profile';
 import LoginSchema from '/lib/schemas/login';
 import RegisterSchema from '/lib/schemas/register';
 
 export const composer = ({ context }, onData) => {
   const { Meteor } = context();
   const registerSchema = LoginSchema.extend(RegisterSchema);
-  onData(null, { registerSchema });
+  onData(null, { registerSchema: UserProfileSchema.extend(registerSchema) });
 };
 
 export const depsMapper = (context, actions) => ({

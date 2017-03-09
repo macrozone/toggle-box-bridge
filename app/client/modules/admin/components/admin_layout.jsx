@@ -1,5 +1,5 @@
 import React from 'react';
-import MainLayout from '../../core/components/main_layout';
+import MainLayout from '../../core/containers/main_layout';
 
 const AdminLayout = ({ content }) => (<MainLayout content={content} />);
 

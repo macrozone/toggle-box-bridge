@@ -1,17 +1,14 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import { setComposerStub } from 'react-komposer';
-import Center from '../center';
+import AdminHome from '../admin_home';
 
 
-storiesOf('core.Center', module)
-  .addWithDoc('default view', Center,
+storiesOf('admin.AdminHome', module)
+  .addWithDoc('default view', AdminHome,
   'This is the default view',
   () => {
     return (
-      <Center>
-        Centered Content
-      </Center>
-
+      <AdminHome />
     );
   })

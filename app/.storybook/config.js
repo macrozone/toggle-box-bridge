@@ -2,6 +2,7 @@ import { configure, setAddon, addDecorator } from '@kadira/storybook';
 import { disable } from 'react-komposer';
 import { setStubbingMode } from 'react-komposer';
 import addWithDoc from 'storybook-addon-props';
+import '../client/main.scss';
 
 setAddon(addWithDoc);
 setStubbingMode();

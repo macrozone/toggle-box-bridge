@@ -7,10 +7,17 @@ export default {
           props: () => ({ email }),
         }, (error) => {
           if (!error) {
-            manulRouter.go('myProfile');
+            manulRouter.go('home');
           }
         }
     ));
+    },
+    logout({ Meteor, Alerts, manulRouter }) {
+      Meteor.logout(Alerts.handleCallback('account.actions.logout', (error) => {
+        if (!error) {
+          manulRouter.go('home');
+        }
+      }));
     },
   },
 };
