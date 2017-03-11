@@ -6,7 +6,7 @@
     "lint": "eslint --cache ./lib ./client ./server --ext=jsx --ext=js",
     "precommit": "npm run lint && npm run test-storybook",
     "storybook": "start-storybook -p 9001",
-    "chimp-watch": "chimp .config/chimp.js --mocha --ddp=http://localhost:3000 --watch --path=tests",
+    "chimp-watch": "chimp .config/chimp.js --mocha --ddp=http://localhost:3000 --watch --path=tests --browser=phantomjs",
     "chimp": "chimp .config/chimp.js --mocha --ddp=http://localhost:3000 --path=tests",
     "ci": ".scripts/chimp.js",
     "test-storybook": "storyshots",

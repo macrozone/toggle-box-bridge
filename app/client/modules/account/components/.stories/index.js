@@ -1,2 +1,2 @@
 import profile from './profile';
-import login from './login';
+//import login from './login';

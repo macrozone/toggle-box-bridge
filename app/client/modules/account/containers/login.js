@@ -1,10 +1,22 @@
 import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
 import { setComposerStub } from 'react-komposer';
 import Login from '../components/login.jsx';
-import loginSchema from '/lib/schemas/login';
+import SimpleSchema from 'simpl-schema';
 
 export const composer = ({ context }, onData) => {
   const { Meteor } = context();
+  const loginSchema = new SimpleSchema({
+    email: {
+      type: String,
+      regEx: SimpleSchema.RegEx.Email,
+    },
+    password: {
+      type: String,
+      uniforms: {
+        type: 'password',
+      },
+    },
+  });
 
   onData(null, { loginSchema });
 };

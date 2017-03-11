@@ -3,7 +3,7 @@ import navigate from './helpers/navigate';
 import { logout, getUserProperty } from './helpers/user';
 import { waitForUrl } from './helpers/waits';
 
-describe('login', function () {
+describe('login @watch', function () {
   beforeEach(function () {
     navigate('/de/login');
   });
@@ -26,6 +26,7 @@ describe('login', function () {
   });
 
   it('allows to login and goes home afterwards', function () {
+    expect(browser.waitForExist("[type='submit']")).to.be.true;
     browser.setValue("input[name='email']", 'heinz@panter.ch');
     browser.setValue("input[name='password']", 'heinzheinzson2017');
     browser.click("[type='submit']");

@@ -1,1 +1,1 @@
-import registerForm from './register_form';
+//import registerForm from './register_form';
