@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Tracker } from 'meteor/tracker';
+import * as Schemas from '/lib/schemas';
 
 import SimpleSchema from 'simpl-schema';
 
@@ -49,6 +50,7 @@ export default function () {
     Meteor,
     manulRouter,
     SimpleSchema,
+    Schemas,
     LocalState,
     Collections,
     Tracker,

@@ -1,23 +1,13 @@
 import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
 import { setComposerStub } from 'react-komposer';
 import RegisterForm from '../components/register_form.jsx';
-import UserProfileSchema from '/lib/schemas/user_profile';
-import SimpleSchema from 'simpl-schema';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor } = context();
+  const { Meteor, Schemas, SimpleSchema } = context();
 
-  const registerSchema = UserProfileSchema.extend(new SimpleSchema({
-    email: {
-      type: String,
-      regEx: SimpleSchema.RegEx.Email,
-    },
-    password: {
-      type: String,
-      uniforms: {
-        type: 'password',
-      },
-    },
+  const registerSchema = new SimpleSchema().extend(Schemas.UserProfile);
+  registerSchema.extend(Schemas.Login);
+  registerSchema.extend(new SimpleSchema({
     confirmPassword: {
       type: String,
       label: 'Enter the password again',

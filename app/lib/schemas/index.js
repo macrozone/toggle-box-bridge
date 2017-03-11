@@ -1,5 +1,7 @@
 import UserProfile from './user_profile';
+import Login from './login';
 
-export default {
+export {
   UserProfile,
+  Login,
 };

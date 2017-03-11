@@ -52,22 +52,6 @@ exports[`default view`] = `
           value="" />
       </div>
       <div
-        required={true}>
-        <label
-          htmlFor="uniforms-0000-0004">
-          Enter the password again
-        </label>
-        <input
-          className="duAxJZ"
-          disabled={false}
-          id="uniforms-0000-0004"
-          name="confirmPassword"
-          onChange={[Function]}
-          placeholder=""
-          type="password"
-          value="" />
-      </div>
-      <div
         className="iUTagu">
         <button
           className="cmAKXG"
