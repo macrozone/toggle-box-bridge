@@ -3,7 +3,7 @@ import navigate from './helpers/navigate';
 import { logout, getUserProperty } from './helpers/user';
 import { waitForUrl } from './helpers/waits';
 
-describe('login @watch', function () {
+describe('login', function () {
   beforeEach(function () {
     navigate('/de/login');
   });

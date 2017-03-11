@@ -62,6 +62,10 @@ export const removeUsers = () => {
   Meteor.users.remove({ 'emails.address': 'admin-test@panter.ch' });
 };
 
+
+export const removeUserForEmail = ({ email }) => {
+  Meteor.users.remove({ 'emails.address': email });
+};
 export const logout = (done) => {
   Meteor.logout(done);
 };
