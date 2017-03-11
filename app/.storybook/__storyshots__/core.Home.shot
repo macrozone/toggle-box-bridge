@@ -4,7 +4,8 @@ exports[`default view`] = `
   <div
     className="gADXiQ">
     <h1
-      className="uGLzh">
+      className="uGLzh"
+      data-testId="home-title">
       Boilerplate
     </h1>
   </div>

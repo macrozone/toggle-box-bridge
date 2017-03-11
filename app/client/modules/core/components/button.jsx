@@ -3,10 +3,10 @@ import { T } from '@panter/manul-i18n';
 import styled from 'styled-components';
 
 
-const C = ({ href, className, style, children, label, onClick, type }) => {
+const C = ({ href, className, style, children, label, onClick, type, testId }) => {
   const Tag = href ? 'a' : 'button';
   return (
-    <Tag className={className} style={style} href={href} onClick={onClick} type={type}>
+    <Tag className={className} style={style} href={href} onClick={onClick} type={type} data-testId={testId}>
       {children || label}
     </Tag>
   );

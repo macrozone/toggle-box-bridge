@@ -14,11 +14,11 @@ const HomeTitle = styled.h1`
 const Home = () => (
   <HomeBase>
     <Center>
-      <HomeTitle>Boilerplate</HomeTitle>
-      <LinkButton routeName="register">
+      <HomeTitle data-testId="home-title">Boilerplate</HomeTitle>
+      <LinkButton testId="home-register-button" routeName="register">
         Register
       </LinkButton>
-      <LinkButton routeName="login">
+      <LinkButton testId="home-login-button" routeName="login">
         Login
       </LinkButton>
     </Center>

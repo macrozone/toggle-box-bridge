@@ -71,6 +71,7 @@ exports[`default view`] = `
         className="iUTagu">
         <button
           className="cmAKXG"
+          data-testId={undefined}
           href={undefined}
           onClick={undefined}
           style={undefined}
