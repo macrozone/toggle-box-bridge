@@ -244,11 +244,89 @@ When you create a new collection put the schema definition into the "/lib/schema
 easy to export a schema. If for example you need it in a component for a form.
 
 ## Testing
-In this boilerplate we set the biggest focus on end2end tests. To write a new test you need to create a
-file inside of the "/app/tests" folder. We use mocha to write our tests. But chimp also supports Jasmine
-or cucumber.  
+
+### End to end tests
+We use mocha together with chimp to write our end to end tests.To write a new test you need to create a
+file inside of the "/app/tests" folder.
+
+We created a few helpers to work with chimp.
+***fixtures.js*** creates data before all the tests run and removes it after the they finished.in this case they create users and removes them.
+
+***navigate.js*** exports a function which lets you navigate with flow router.
+
+***user.js*** exports helper functions to create, remove, login, logout and get user properties.
+
+***waits.js*** exports two function to wait until url changed to a given url or until the url changes.
+
+#### Example
+
+```
+import navigate from './helpers/navigate';
+import { logout, getUserForEmail, removeUserForEmail } from './helpers/user';
+
+
+const userEmail = 'heinz2@panter.ch';
+const userPassword = 'heinzmcheinzface';
+describe('signup', function () {
+  beforeEach(function () {
+    navigate('/de/register');
+    server.execute(removeUserForEmail, userEmail);
+  });
+
+  beforeEach(function () {
+    browser.executeAsync(logout);
+  });
+
+
+  it('shows signup form', function () {
+    expect(browser.waitForExist("input[name='firstname']")).to.be.true;
+    expect(browser.waitForExist("input[name='lastname']")).to.be.true;
+    expect(browser.waitForExist("input[name='email']")).to.be.true;
+    expect(browser.waitForExist("input[name='password']")).to.be.true;
+    expect(browser.waitForExist("input[name='confirmPassword']")).to.be.true;
+    expect(browser.waitForExist("[type='submit']")).to.be.true;
+    expect(browser.waitForExist('=Back')).to.be.true;
+  });
+
+  it('should create a user', function () {
+    browser.waitForExist("input[name='firstname']");
+    browser.setValue("input[name='firstname']", 'Heinz');
+    browser.setValue("input[name='lastname']", 'Heinzson');
+    browser.setValue("input[name='email']", userEmail);
+    browser.setValue("input[name='password']", userPassword);
+    browser.setValue("input[name='confirmPassword']", userPassword);
+    browser.click("[type='submit']");
+    browser.pause(1000);
+    const userOnServer = server.execute(getUserForEmail, userEmail);
+    expect(userOnServer.emails[0].address).to.equal(userEmail);
+  });
+});
+```
+
+You can import helper functions into your tests and call them with the server or the
+browser object.
+
+If you want to run chimp on your local machine you have thee npm commands:
+```
+npm run chimp
+```
+Runs all tests once. But there must be a server running on port 3000.
+
+```
+npm run chimp-watch
+```
+Only runs tests with @watch or @focus. And there must be a server running on port 3000.
+
+```
+npm run ci
+```
+This command starts a server and runs all chimp tests once. It runs the tests with phantomjs.
+
+More information:   
 [https://chimp.readme.io/](https://chimp.readme.io/)
 
+
+### Storyshots
 We use storyshoots for snapshot testing. When ever someone wants to commit changes starts running and displays
 your changes. If everything is okey the command **_update-storybook_** updates the existing shots and you
 can commit.
