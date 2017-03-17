@@ -1,0 +1,8 @@
+exports[`default view`] = `
+<button
+  className="hhpmBF"
+  href={undefined}
+  onClick={undefined}
+  style={undefined}
+  type={undefined} />
+`;

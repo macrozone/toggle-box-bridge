@@ -4,8 +4,9 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Tracker } from 'meteor/tracker';
+import * as Schemas from '/lib/schemas';
 
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import SimpleSchema from 'simpl-schema';
 
 import moment from 'moment';
 import momentDe from 'moment/locale/de';
@@ -16,6 +17,11 @@ import ManulRouter from '@panter//manul-router';
 import { I18n, T } from '@panter/manul-i18n';
 import TranslationStore from '@panter/manul-i18n/dist/stores/collection';
 
+import { Accounts } from 'meteor/accounts-base';
+import { Roles } from 'meteor/alanning:roles';
+import { MeteorGriddle } from 'meteor/panter:meteor-griddle';
+
+import createAdminContext from './create_admin_context';
 
 export default function () {
   const LocalState = new ReactiveDict();
@@ -40,14 +46,22 @@ export default function () {
 
   i18n.onChangeLocale(locale => moment.locale(locale));
 
-  return {
+  const context = {
     Meteor,
     manulRouter,
     SimpleSchema,
+    Schemas,
     LocalState,
     Collections,
     Tracker,
     i18n,
+    gotoRoute: manulRouter.go.bind(manulRouter),
     localeRoutes: manulRouter.createLocaleRoutesGroup(),
+    Config: Collections.Config,
+    Roles,
+    Accounts,
+    MeteorGriddle,
   };
+  context.adminContext = createAdminContext(context);
+  return context;
 }

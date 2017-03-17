@@ -1,0 +1,67 @@
+exports[`default view`] = `
+<div
+  className="foqgVb">
+  <div
+    className="gADXiQ">
+    <form
+      additionalActions={
+        <T
+          routeName="home">
+          <T>
+            forms.back
+          </T>
+        </T>
+      }
+      noValidate={true}
+      onSubmit={[Function]}
+      submitLabel={
+        <T>
+          account.login.submitlabel
+        </T>
+      }>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0000-0000">
+          Email
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0000-0000"
+          name="email"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0000-0002">
+          Password
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0000-0002"
+          name="password"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="iUTagu">
+        <button
+          className="cmAKXG"
+          data-testId={undefined}
+          href={undefined}
+          onClick={undefined}
+          style={undefined}
+          type="submit" />
+      </div>
+    </form>
+  </div>
+</div>
+`;

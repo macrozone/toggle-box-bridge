@@ -1,0 +1,115 @@
+exports[`default view`] = `
+<div
+  className="hhpmBF">
+  <div
+    className="gADXiQ">
+    <form
+      additionalActions={
+        <T
+          routeName="home">
+          <T>
+            forms.back
+          </T>
+        </T>
+      }
+      noValidate={true}
+      onSubmit={[Function]}
+      submitLabel={
+        <T>
+          registration.register.submitlabel
+        </T>
+      }>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0000">
+          Firstname
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0000"
+          name="firstname"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0002">
+          Lastname
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0002"
+          name="lastname"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0004">
+          Email
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0004"
+          name="email"
+          onChange={[Function]}
+          placeholder=""
+          type="text"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0006">
+          Password
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0006"
+          name="password"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value="" />
+      </div>
+      <div
+        required={true}>
+        <label
+          htmlFor="uniforms-0001-0008">
+          Enter the password again
+        </label>
+        <input
+          className="duAxJZ"
+          disabled={false}
+          id="uniforms-0001-0008"
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder=""
+          type="password"
+          value="" />
+      </div>
+      <div
+        className="iUTagu">
+        <button
+          className="cmAKXG"
+          data-testId={undefined}
+          href={undefined}
+          onClick={undefined}
+          style={undefined}
+          type="submit" />
+      </div>
+    </form>
+  </div>
+</div>
+`;

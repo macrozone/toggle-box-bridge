@@ -6,11 +6,11 @@
     "lint": "eslint --cache ./lib ./client ./server --ext=jsx --ext=js",
     "precommit": "npm run lint && npm run test-storybook",
     "storybook": "start-storybook -p 9001",
-    "chimp-watch": "chimp --mocha --ddp=http://localhost:3000 --watch --path=tests",
-    "chimp": "chimp --mocha --ddp=http://localhost:3000 --path=tests",
+    "chimp-watch": "chimp .config/chimp.js --mocha --ddp=http://localhost:3000 --watch --path=tests --browser=phantomjs",
+    "chimp": "chimp .config/chimp.js --mocha --ddp=http://localhost:3000 --path=tests",
     "ci": ".scripts/chimp.js",
     "test-storybook": "storyshots",
-    "update-storybook-tests": "npm run test-storybook -- -u"
+    "update-storybook": "npm run test-storybook -- -u"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@panter/manul-i18n": "~0.1.2",
-    "@panter/manul-router": "~0.2.3",
+    "@panter/manul-admin": "^0.3.1",
+    "@panter/manul-alerts": "^0.1.1",
+    "@panter/manul-i18n": "^0.4.0",
+    "@panter/manul-router": "^0.2.3",
     "bcrypt": "^0.8.7",
     "blueimp-canvas-to-blob": "^3.6.0",
     "griddle-react": "^0.7.1",
@@ -36,7 +38,9 @@
     "react-simple-di": "^1.0.1",
     "recompose": "^0.21.2",
     "simpl-schema": "^0.1.0",
-    "styled-components": "^1.4.3"
+    "styled-components": "^1.4.3",
+    "uniforms": "^1.11.2",
+    "yamljs": "^0.2.8"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -56,6 +60,7 @@
     "babel-preset-stage-2": "6.x.x",
     "babel-root-slash-import": "1.x.x",
     "chai": "3.x.x",
+    "chimp": "^0.47.1",
     "enzyme": "^2.2.0",
     "eslint": "^3.10.2",
     "eslint-config-airbnb": "^12.0.0",
@@ -68,7 +73,6 @@
     "jsdom": "^8.0.4",
     "mocha": "2.x.x",
     "react-addons-test-utils": "^15.0.0",
-    "sinon": "1.17.x",
-    "chimp": "^0.47.1"
+    "sinon": "1.17.x"
   }
 }

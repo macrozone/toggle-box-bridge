@@ -1,0 +1,13 @@
+exports[`default view`] = `
+<div
+  className="foqgVb">
+  <div
+    className="gADXiQ">
+    <h1
+      className="uGLzh"
+      data-testId="home-title">
+      Boilerplate
+    </h1>
+  </div>
+</div>
+`;

@@ -1,0 +1,6 @@
+exports[`default view`] = `
+<div
+  className="gADXiQ">
+  Centered Content
+</div>
+`;
