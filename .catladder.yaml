@@ -1,0 +1,6 @@
+customer: pan
+appname: manulBoilerplate
+passPath: pan/manulBoilerplate
+appDir: ./app
+buildDir: ./build
+androidBuildToolVersion: 25.0.2
