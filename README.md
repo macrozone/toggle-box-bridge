@@ -162,8 +162,6 @@ collections etc.
 | | | |__navigate.js // navigates without page reload
 | | | |__waits.js  // url helper functions
 | | |__home.js   // test file 
-|__build-staging.sh  // build script used by gitlab-ci
-|__deploy-staging.sh // deploy script used by gitlab-ci
 |__README.md
 |__test.sh  // test script used by gitlab-ci
 ```
@@ -204,7 +202,7 @@ The other more imporatnt file is the chimp.js in the .scripts folder. This scrip
 and after chimp is done kills both proccesses. This is needed to run chimp in gitlab-ci. With only gitlab config you can not run 
 two processes at the same time.
 
-We use phantomjs as headless browser.
+We use firefox as headless browser.
 
 More information:  
 [https://chimp.readme.io/](https://chimp.readme.io/)  

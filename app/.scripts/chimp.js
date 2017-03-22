@@ -29,7 +29,7 @@ const meteorOptions = {
 
 const chimpOptions = {
   name: 'Chimp',
-  command: `${chimpBin} --mocha --ddp=http://localhost:3000 --path=tests --browser=phantomjs`,
+  command: `${chimpBin} --mocha --ddp=http://localhost:3000 --path=tests --browser=firefox`,
   options: {
     env: Object.assign({}, process.env, {
       NODE_PATH: `${process.env.NODE_PATH +
