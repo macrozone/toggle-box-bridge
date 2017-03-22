@@ -18,6 +18,7 @@ collections etc.
 
 ## Important libraries
 
+
 * **simpl-schema:**  
     Use simple-schema to validate our collections or to 
     create a form together with uniforms/autoform.  
@@ -41,9 +42,15 @@ collections etc.
 * **manul-router:**  
     extension to flow router.  
     [https://github.com/panter/manul-router](https://github.com/panter/manul-router)
+* **catladder:**  
+    Build and deploy tool for manul-mantra apps.  
+    [https://github.com/panter/catladder](https://github.com/panter/catladder)
 * **storyshots:**
     Snapshot testing ui components.  
     [https://github.com/storybooks/storyshots](https://github.com/storybooks/storyshots)
+* **storybook:**
+    UI Component Dev Environment for React.  
+    [https://github.com/storybooks/react-storybook](https://github.com/storybooks/react-storybook)
 * **chimp:**
     Used to write end to end tests with mocha and
     webdriver.io.  
@@ -175,20 +182,15 @@ we defined 3 stages.
 **Test:**  
 Uses the test.sh script which simply runs eslint and starts chimp to run the end to end tests.
 
-**Build:**  
-Starts the meteor build proccess. If you also use gitlab to deploy your app you can remove this stage and
-build the app in the deploy proccess. This makes the ci a bit faster.
-
 **Deploy:**  
-Starts the deploy-staging.sh. In this project it deploys the app to heroku but you can deploy it anywhere you want.
+Runs catladder to deploy our app to the server. If you plan to deploy to a different enviroment you cant use catladder.
 
 **Important:**  
 Keys or passwords usw are stored in gitlab as "secrect variables" and can then be used in the config as variables.
-For example **_$HEROKU_API_KEY_** in the deploy-staging.sh.  
+For example **_$SSH_PRIVATE_KEY_** in the .gitlab-ci.  
 [secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 
-As Dockerimage we use [meteor-node](https://hub.docker.com/r/blurri/meteor-node/) normaly.  
-In this project we use [meteor-node-heroku](https://hub.docker.com/r/blurri/meteor-node-heroku/) but thats only because we deploy  here to heroku.
+As Dockerimage we use [meteor-node](https://hub.docker.com/r/blurri/meteor-node/)
 
 For more information to gitlab-ci:  
 [https://docs.gitlab.com/ce/ci/](https://docs.gitlab.com/ce/ci/)
@@ -209,6 +211,9 @@ More information:
 [https://mochajs.org/](https://mochajs.org/)  
 [http://webdriver.io/](http://webdriver.io/)  
 
+### Catladder
+Deploy and Build tool for manul mantra apps.
+[https://github.com/panter/catladder](https://github.com/panter/catladder)
 
 ### Manul-admin
 [https://github.com/panter/manul-admin](https://github.com/panter/manul-admin)
