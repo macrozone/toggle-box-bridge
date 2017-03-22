@@ -1,0 +1,21 @@
+customer: pan
+appname: manulBoilerplate
+passPath: pan/manulBoilerplate
+appDir: ./app
+buildDir: ./build
+androidBuildToolVersion: 25.0.2
+environments:
+  staging:
+    host: manul-boilerplate-staging.panter.biz
+    user: app
+    url: 'https://manul-boilerplate-staging.panter.biz'
+    androidKeystore: ./android.keystore
+    androidKeyname: manul-boilerplate-staging
+    androidDName: 'cn=Panter, ou=Panter, o=Panter, c=CH'
+  production:
+    host: manul-boilerplate-production.biz
+    user: app
+    url: 'https://manul-boilerplate-production.biz'
+    androidKeystore: ./android.keystore
+    androidKeyname: manul-boilerplate-production
+    androidDName: 'cn=Panter, ou=Panter, o=Panter, c=CH'

@@ -1,28 +1,49 @@
-image: blurri/meteor-node-heroku
-
+image: blurri/meteor-node
 variables:
     METEOR_ALLOW_SUPERUSER: "true"
 
+before_script:
+  - npm install @panter/catladder -g --silent
+  - Xvfb :10 -ac &
+  - export DISPLAY=:10
+
 stages:
   - test
-  - build
-  - deploy
+  - deploy_staging
+  - deploy_production
 
 test:
   stage: test
   script: ./test.sh
 
-build:
-  stage: build
-  script: ./build-staging.sh
+# dont work in this project, just to show how it should be configured
+deploy_staging:
+  stage: deploy_staging
+  script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - catladder deploy staging
+  environment:
+    name: staging
+    url: https://manul-boilerplate-staging.panter.biz 
   only:
   - develop
 
-deploy_staging:
-  stage: deploy
-  script: ./deploy-staging.sh
+# dont work in this project, just to show how it should be configured
+deploy_production:
+  stage: deploy_production
+  script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - catladder deploy production
   environment:
-    name: staging
-    url: https://gba-mantra-boilerplate.herokuapp.com
+    name: production
+    url: https://manul-boilerplate-production.panter.biz
   only:
-  - develop
+  - master
