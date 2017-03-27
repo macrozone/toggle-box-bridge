@@ -1,5 +1,29 @@
 # MANUL Boilerplate 
 
+<!-- TOC -->
+
+- [MANUL Boilerplate](#manul-boilerplate)
+    - [Install](#install)
+    - [Important libraries](#important-libraries)
+    - [File structure](#file-structure)
+    - [Configs](#configs)
+        - [Gitlab-ci](#gitlab-ci)
+        - [Chimp](#chimp)
+        - [Catladder](#catladder)
+        - [Manul-admin](#manul-admin)
+        - [Manul-i18n](#manul-i18n)
+        - [Manul-router](#manul-router)
+            - [Routing](#routing)
+        - [Mantra-cli](#mantra-cli)
+    - [Create modules, container, component or collection](#create-modules-container-component-or-collection)
+    - [Testing](#testing)
+        - [End to end tests](#end-to-end-tests)
+            - [Example](#example)
+        - [Storyshots](#storyshots)
+    - [Npm run commands](#npm-run-commands)
+
+<!-- /TOC -->
+
 ## Install
 To use the boilerplate you need to install Meteor and Mantra-cli first.
 You should also read the meteor mantra specification sice this 
@@ -230,6 +254,26 @@ const manulRouter = new ManulRouter(
 ```
 [https://github.com/panter/manul-router](https://github.com/panter/manul-router)
 
+
+#### Routing
+All of our application routes are defined in the routes.jsx of the core module. Only additional admin
+routes are defined in the admin module.
+
+For authenticated routes we defiend the property "contentNotLoggedIn". If a user need to be logged in for a route you can add a component which should be displayed if the user is not logged in. For example display the login form. That way we dont need to redirect.
+
+Example:
+
+```
+  localeRoutes.route('/', {
+    name: 'home',
+    action() {
+      mount(MainLayoutCtx, {
+        content: () => <Profile />,
+        contentNotLoggedIn: () => <Home />,
+      });
+    },
+  });
+```
 
 ### Mantra-cli
 Mantra-cli is configured in the mantra_cli.yml file we overrid the default templates and disabled the 
