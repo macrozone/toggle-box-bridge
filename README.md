@@ -1,33 +1,32 @@
-# MANUL Boilerplate 
+# 1. MANUL Boilerplate 
 
 <!-- TOC -->
 
-- [MANUL Boilerplate](#manul-boilerplate)
-    - [Install](#install)
-    - [Important libraries](#important-libraries)
-    - [File structure](#file-structure)
-    - [Configs](#configs)
-        - [Gitlab-ci](#gitlab-ci)
-        - [Chimp](#chimp)
-        - [Catladder](#catladder)
-        - [Manul-admin](#manul-admin)
-        - [Manul-i18n](#manul-i18n)
-        - [Manul-router](#manul-router)
-            - [Routing](#routing)
-        - [Mantra-cli](#mantra-cli)
-    - [Create modules, container, component or collection](#create-modules-container-component-or-collection)
-    - [Testing](#testing)
-        - [End to end tests](#end-to-end-tests)
-            - [Example](#example)
-        - [Storyshots](#storyshots)
-    - [Npm run commands](#npm-run-commands)
+- [1. MANUL Boilerplate](#1-manul-boilerplate)
+    - [1.1. Install](#11-install)
+    - [1.2. Important libraries](#12-important-libraries)
+    - [1.3. File structure](#13-file-structure)
+    - [1.4. Configs](#14-configs)
+        - [1.4.1. Gitlab-ci](#141-gitlab-ci)
+        - [1.4.2. Chimp](#142-chimp)
+        - [1.4.3. Catladder](#143-catladder)
+        - [1.4.4. Manul-admin](#144-manul-admin)
+        - [1.4.5. Manul-i18n](#145-manul-i18n)
+        - [1.4.6. Manul-router](#146-manul-router)
+            - [1.4.6.1. Routing](#1461-routing)
+        - [1.4.7. Mantra-cli](#147-mantra-cli)
+            - [1.4.7.1. Create modules, container, component or collection](#1471-create-modules-container-component-or-collection)
+    - [1.5. Testing](#15-testing)
+        - [1.5.1. End to end tests](#151-end-to-end-tests)
+            - [1.5.1.2. Test Example](#1512-test-example)
+        - [1.5.2. Storyshots](#152-storyshots)
+    - [1.6. Npm run commands](#16-npm-run-commands)
 
 <!-- /TOC -->
 
-## Install
+## 1.1. Install
 To use the boilerplate you need to install Meteor and Mantra-cli first.
-You should also read the meteor mantra specification since this boilerplate is based on it. We use mantra-cli to create new components,
-collections etc.
+You should also read the meteor mantra specification since this boilerplate is based on it. We use mantra-cli to create new components, collections etc.
 
 **Meteor:**  
 [https://www.meteor.com/install](https://www.meteor.com/install)
@@ -39,7 +38,7 @@ collections etc.
 [https://github.com/mantrajs/mantra-cli](https://github.com/mantrajs/mantra-cli)
 
 
-## Important libraries
+## 1.2. Important libraries
 
 
 * **simpl-schema:**  
@@ -66,13 +65,13 @@ collections etc.
 * **catladder:**  
     Build and deploy tool for manul-mantra apps.  
     [https://github.com/panter/catladder](https://github.com/panter/catladder)
-* **storyshots:**
+* **storyshots:**   
     Snapshot testing ui components.  
     [https://github.com/storybooks/storyshots](https://github.com/storybooks/storyshots)
-* **storybook:**
+* **storybook:**   
     UI Component Dev Environment for React.  
     [https://github.com/storybooks/react-storybook](https://github.com/storybooks/react-storybook)
-* **chimp:**
+* **chimp:**   
     Used to write end to end tests with mocha and
     webdriver.io.  
     [https://chimp.readme.io/](https://chimp.readme.io/)
@@ -82,7 +81,7 @@ collections etc.
     [https://github.com/typicode/husky](https://github.com/typicode/husky)
 
 
-## File structure
+## 1.3. File structure
 ```
 |__.gitignore
 |__.gitlab-ci.yml  // config for Continious Integration & Continious Deployment
@@ -192,9 +191,9 @@ Our root folder contains the config file for gitlab-ci and the scripts for the d
 The "app" folder is the mantra application created with mantra-cli. If you want to use our configuration for ci the name 
 app is important.
 
-## Configs
+## 1.4. Configs
 
-### Gitlab-ci
+### 1.4.1. Gitlab-ci
 This configuration is more an example since it will change in different projects. For the boilerplate project, we defined 3 stages.
 
 **Test:**  
@@ -214,7 +213,7 @@ For more information to gitlab-ci:
 [https://docs.gitlab.com/ce/ci/](https://docs.gitlab.com/ce/ci/)
 
 
-### Chimp
+### 1.4.2. Chimp
 Chimp is configured in two config files. First, there ist a chimp.js file in the .config folder. This is the configuration of
 chimp itself. For example, we set the timeout in this project. 
 
@@ -228,19 +227,19 @@ More information:
 [https://mochajs.org/](https://mochajs.org/)  
 [http://webdriver.io/](http://webdriver.io/)  
 
-### Catladder
+### 1.4.3. Catladder
 Deploy and Build tool for manul mantra apps.
 [https://github.com/panter/catladder](https://github.com/panter/catladder)
 
-### Manul-admin
+### 1.4.4. Manul-admin
 [https://github.com/panter/manul-admin](https://github.com/panter/manul-admin)
 
 
-### Manul-i18n
+### 1.4.5. Manul-i18n
 [https://github.com/panter/manul-i18n](https://github.com/panter/manul-i18n)
 
 
-### Manul-router
+### 1.4.6. Manul-router
 Manul router get configured in the mantra context:
 ```
 const manulRouter = new ManulRouter(
@@ -250,7 +249,7 @@ const manulRouter = new ManulRouter(
 [https://github.com/panter/manul-router](https://github.com/panter/manul-router)
 
 
-#### Routing
+#### 1.4.6.1. Routing
 All of our application routes are defined in the routes.jsx of the core module. Only additional admin
 routes are defined in the admin module.
 
@@ -270,23 +269,27 @@ Example:
   });
 ```
 
-### Mantra-cli
+### 1.4.7. Mantra-cli
 Mantra-cli is configured in the mantra_cli.yml file we override the default templates and disabled the unit tests.
 
 More information:  
 [https://github.com/mantrajs/mantra-cli#customization](https://github.com/mantrajs/mantra-cli#customization)
 
 
-## Create modules, container, component or collection
+#### 1.4.7.1. Create modules, container, component or collection
 To create a new module, container, component or collection use mantra-cli. It will generate all files
 and stories for a storybook.You should develop and design your components in a storybook.
 
 When you create a new collection put the schema definition into the "/lib/schema" folder. That makes it
 easy to export a schema. If for example, you need it in a component for a form.
 
-## Testing
+mantra-cli commands:   
+[https://github.com/mantrajs/mantra-cli](https://github.com/mantrajs/mantra-cli)
 
-### End to end tests
+
+## 1.5. Testing
+
+### 1.5.1. End to end tests
 We use mocha together with chimp to write our end to end tests.To write a new test you need to create a
 file inside of the "/app/tests" folder.
 
@@ -299,7 +302,7 @@ We created a few helpers to work with chimp.
 
 ***waits.js*** exports two functions to wait until URL changed to a given URL or until the URL changes.
 
-#### Example
+#### 1.5.1.2. Test Example
 
 ```
 import navigate from './helpers/navigate';
@@ -367,13 +370,22 @@ More information:
 [https://chimp.readme.io/](https://chimp.readme.io/)
 
 
-### Storyshots
+### 1.5.2. Storyshots
 We use storyshoots for snapshot testing. When ever someone wants to commit changes starts running and displays
-your changes. If everything is okey the command **_update-storybook_** updates the existing shots and you
-can commit.
+your changes. 
+
+To run storyshoots manually
+```
+npm run test-storybook
+```
+
+To update the snapshots run
+```
+npm run update-storybook
+```
 
 
-## Npm run commands
+## 1.6. Npm run commands
 **lint:** runs eslint  
 **precommit:** runs eslint and storyshoots if errors prevents commit  
 **storybook:** starts a storybook server on port 9001  
