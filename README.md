@@ -26,8 +26,7 @@
 
 ## Install
 To use the boilerplate you need to install Meteor and Mantra-cli first.
-You should also read the meteor mantra specification sice this 
-boilerplate is based on it. We use mantra-cli to create new components,
+You should also read the meteor mantra specification since this boilerplate is based on it. We use mantra-cli to create new components,
 collections etc.
 
 **Meteor:**  
@@ -48,12 +47,10 @@ collections etc.
     create a form together with uniforms/autoform.  
     [https://github.com/aldeed/node-simple-schema](https://github.com/aldeed/node-simple-schema)  
 * **uniforms:**  
-    Used to create forms.
+    Used to create forms.  
     [https://github.com/vazco/uniforms](https://github.com/vazco/uniforms)
 * **styled-components:**  
     [https://github.com/styled-components/styled-components](https://github.com/styled-components/styled-components)  
-* **uniforms:**  
-    [https://github.com/vazco/uniforms](https://github.com/vazco/uniforms)  
 * **manul-admin:**  
     Admin backend allows to modify collections.  
     [https://github.com/panter/manul-admin](https://github.com/panter/manul-admin)  
@@ -80,8 +77,8 @@ collections etc.
     webdriver.io.  
     [https://chimp.readme.io/](https://chimp.readme.io/)
 * **husky:**  
-    used for precommit hook.  
-    starts eslint and storyshoots before commiting.
+    used for pre commit hook.  
+    starts eslint and storyshoots before committing.   
     [https://github.com/typicode/husky](https://github.com/typicode/husky)
 
 
@@ -198,17 +195,16 @@ app is important.
 ## Configs
 
 ### Gitlab-ci
-This configuration is more a example since it will change in different projects. For the boilerplate project 
-we defined 3 stages.
+This configuration is more an example since it will change in different projects. For the boilerplate project, we defined 3 stages.
 
 **Test:**  
 Uses the test.sh script which simply runs eslint and starts chimp to run the end to end tests.
 
 **Deploy:**  
-Runs catladder to deploy our app to the server. If you plan to deploy to a different enviroment you cant use catladder.
+Runs catladder to deploy our app to the server. If you plan to deploy to a different environment you can't use catladder.
 
 **Important:**  
-Keys or passwords usw are stored in gitlab as "secrect variables" and can then be used in the config as variables.
+Keys or passwords are stored in gitlab as "secret variables" and can then be used in the config as variables.
 For example **_$SSH_PRIVATE_KEY_** in the .gitlab-ci.  
 [secret-variables](https://docs.gitlab.com/ce/ci/variables/#secret-variables)
 
@@ -219,14 +215,13 @@ For more information to gitlab-ci:
 
 
 ### Chimp
-Chimp is configured in two config files. First there ist a chimp.js file in the .config folder. This is the configuration of
-chimp itself. For example we set the timeout in this project. 
+Chimp is configured in two config files. First, there ist a chimp.js file in the .config folder. This is the configuration of
+chimp itself. For example, we set the timeout in this project. 
 
-The other more imporatnt file is the chimp.js in the .scripts folder. This script starts a meteor instance and runs chimp
-and after chimp is done kills both proccesses. This is needed to run chimp in gitlab-ci. With only gitlab config you can not run 
-two processes at the same time.
+The other more important file is the chimp.js in the .scripts folder. This script starts a meteor instance and runs chimp
+and after chimp is done kills both processes. This is needed to run chimp in gitlab-ci. With only gitlab config you can not run two processes at the same time.
 
-We use firefox as headless browser.
+We use firefox as a headless browser.
 
 More information:  
 [https://chimp.readme.io/](https://chimp.readme.io/)  
@@ -259,7 +254,7 @@ const manulRouter = new ManulRouter(
 All of our application routes are defined in the routes.jsx of the core module. Only additional admin
 routes are defined in the admin module.
 
-For authenticated routes we defiend the property "contentNotLoggedIn". If a user need to be logged in for a route you can add a component which should be displayed if the user is not logged in. For example display the login form. That way we dont need to redirect.
+For authenticated routes, we defined the property "contentNotLoggedIn". If a user needs to be logged in for a route you can add a component which should be displayed if the user is not logged in. For example, display the login form. That way we don't need to redirect.
 
 Example:
 
@@ -276,8 +271,7 @@ Example:
 ```
 
 ### Mantra-cli
-Mantra-cli is configured in the mantra_cli.yml file we overrid the default templates and disabled the 
-unit tests.
+Mantra-cli is configured in the mantra_cli.yml file we override the default templates and disabled the unit tests.
 
 More information:  
 [https://github.com/mantrajs/mantra-cli#customization](https://github.com/mantrajs/mantra-cli#customization)
@@ -285,10 +279,10 @@ More information:
 
 ## Create modules, container, component or collection
 To create a new module, container, component or collection use mantra-cli. It will generate all files
-and stories for storybook.You should develop and design your components in storybook.
+and stories for a storybook.You should develop and design your components in a storybook.
 
 When you create a new collection put the schema definition into the "/lib/schema" folder. That makes it
-easy to export a schema. If for example you need it in a component for a form.
+easy to export a schema. If for example, you need it in a component for a form.
 
 ## Testing
 
@@ -297,13 +291,13 @@ We use mocha together with chimp to write our end to end tests.To write a new te
 file inside of the "/app/tests" folder.
 
 We created a few helpers to work with chimp.
-***fixtures.js*** creates data before all the tests run and removes it after the they finished.in this case they create users and removes them.
+***fixtures.js*** creates data before all the tests run and remove it after they finished. In this case they create users and removes them.
 
 ***navigate.js*** exports a function which lets you navigate with flow router.
 
 ***user.js*** exports helper functions to create, remove, login, logout and get user properties.
 
-***waits.js*** exports two function to wait until url changed to a given url or until the url changes.
+***waits.js*** exports two functions to wait until URL changed to a given URL or until the URL changes.
 
 #### Example
 
