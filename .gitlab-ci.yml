@@ -9,41 +9,41 @@ before_script:
 
 stages:
   - test
-  - deploy_staging
-  - deploy_production
+ # - deploy_staging
+ # - deploy_production
 
 test:
   stage: test
   script: ./test.sh
 
 # dont work in this project, just to show how it should be configured
-deploy_staging:
-  stage: deploy_staging
-  script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-    - eval $(ssh-agent -s)
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - catladder deploy staging
-  environment:
-    name: staging
-    url: https://manul-boilerplate-staging.panter.biz 
-  only:
-  - develop
+#deploy_staging:
+ # stage: deploy_staging
+  #script:
+   # - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+   # - eval $(ssh-agent -s)
+   # - ssh-add <(echo "$SSH_PRIVATE_KEY")
+   # - mkdir -p ~/.ssh
+   # - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+   # - catladder deploy staging
+ # environment:
+   # name: staging
+   # url: https://manul-boilerplate-staging.panter.biz 
+ # only:
+ # - develop
 
 # dont work in this project, just to show how it should be configured
-deploy_production:
-  stage: deploy_production
-  script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-    - eval $(ssh-agent -s)
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - catladder deploy production
-  environment:
-    name: production
-    url: https://manul-boilerplate-production.panter.biz
-  only:
-  - master
+#deploy_production:
+ # stage: deploy_production
+ # script:
+   # - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+   # - eval $(ssh-agent -s)
+   # - ssh-add <(echo "$SSH_PRIVATE_KEY")
+   # - mkdir -p ~/.ssh
+   # - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+   # - catladder deploy production
+ # environment:
+  #  name: production
+  #  url: https://manul-boilerplate-production.panter.biz
+ # only:
+ # - master
