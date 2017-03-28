@@ -294,6 +294,8 @@ We use mocha together with chimp to write our end to end tests.To write a new te
 file inside of the "/app/tests" folder.
 
 We created a few helpers to work with chimp.
+
+
 ***fixtures.js*** creates data before all the tests run and remove it after they finished. In this case they create users and removes them.
 
 ***navigate.js*** exports a function which lets you navigate with flow router.
