@@ -74,6 +74,7 @@
     "jsdom": "^8.0.4",
     "mocha": "2.x.x",
     "react-addons-test-utils": "^15.0.0",
-    "sinon": "1.17.x"
+    "sinon": "1.17.x",
+    "storybook-addon-props": "^2.1.2"
   }
 }

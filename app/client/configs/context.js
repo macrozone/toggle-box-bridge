@@ -37,6 +37,7 @@ export default function () {
       Meteor,
       ReactiveVar,
       collection: Collections.Translations,
+      Tracker,
     }),
   });
 
