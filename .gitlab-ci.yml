@@ -3,6 +3,7 @@ variables:
     METEOR_ALLOW_SUPERUSER: "true"
 
 before_script:
+  - sudo apt-get install libdbus-glib-1-2
   - npm install @panter/catladder -g --silent
   - Xvfb :10 -ac &
   - export DISPLAY=:10
