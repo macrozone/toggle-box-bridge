@@ -28,3 +28,4 @@ alanning:roles
 didericis:permissions-mixin
 percolate:migrations
 xolvio:backdoor
+simple:rest

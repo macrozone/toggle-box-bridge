@@ -32,5 +32,10 @@ export default {
       allowInsertWithId: true,
       columns: ['_id', 'value_de', 'value_en', 'value_fr', 'value_it'],
     },
+    entities: {
+      collection: Collections.Entities,
+      title: 'Entities',
+      columns: ['_id', 'title'],
+    },
   },
 };
